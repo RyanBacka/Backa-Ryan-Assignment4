@@ -9,7 +9,10 @@
 var myNum="412-735-2367",
 	webSite = "http://www.fullsail.edu",
 	isItTrue = false,
-	email = "RKBacka@fullsail.edu";
+	email = "RKBacka@fullsail.edu",
+	stringNum = "72",
+	oddNum = 5,
+	evenArray=[2,4,6,8,10,12,14,16,18];
 
 //functions
 //function to figure out if a string is in valid phone number form
@@ -37,11 +40,33 @@ var isItAnEmailAddress = function(enterString,emailBoo){
 var isItAURL = function(enterString, URLBoo){
 	URLBoo=false;
 	URLBoo=enterString.contains("http:")||enterString.contains("https:");
-	
 	return URLBoo;
 };
 
-var 
+//function determining if a string is a number or a letter and changing it to a number if it is one
+var stringValueToNumber = function(enterString){
+	var isItALetter = false;
+	isItALetter = isNaN(enterString);
+	if (isItALetter === false) {
+       	enterString=parseInt(enterString);
+	}else{
+    	console.log("That is not a number!");
+    };
+	return enterString;
+};
+
+//function finding the number in an array higher than a given number
+var nextHighestNum = function(numArray, newNum){
+	for (var loopCounter = 0; loopCounter < newNum; loopCounter++){
+		if (numArray[loopCounter] > newNum){
+			newNum=numArray[loopCounter];
+			break;
+		};
+	};
+	return newNum;
+};
+
+//
 
 //main code
 //calling my phone number fuction and logging the results
@@ -55,3 +80,14 @@ console.log(isItTrue);
 //calling my email function and logging the results
 isItTrue=isItAnEmailAddress(email, isItTrue);
 console.log(isItTrue);
+
+//calling my string to a number function and logging the result in a mathematical equation
+stringNum = stringValueToNumber(stringNum);
+console.log(stringNum+6);
+
+//calling function to find the first number in an array higher than a set number and logging the result
+oddNum = nextHighestNum(evenArray,oddNum);
+console.log(oddNum);
+
+
+
