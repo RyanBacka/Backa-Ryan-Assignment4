@@ -7,7 +7,7 @@
 
 //global variables
 var myNum="412-735-2367",
-	webSite = "htt://www.fullsail.edu",
+	webSite = "http://www.fullsail.edu",
 	isItTrue = false,
 	email = "RKBacka@fullsail.ie",
 	stringNum = "72",
@@ -43,7 +43,6 @@ var isItAnEmailAddress = function(enterString,emailBoo){
 
 //funtion to determine if a string is in URL form
 var isItAURL = function(enterString, URLBoo){
-	URLBoo=false;
 	URLBoo=enterString.contains("http:")||enterString.contains("https:");
 	return URLBoo;
 };
@@ -73,11 +72,12 @@ var nextHighestNum = function(numArray, newNum){
 
 //function finding the sum of all numbers in an array as long as they are numbers
 var sumOfAllNum = function(rndArray, sumOfArray){
-	var numCheck = 0;
+	var numCheck;
 	for (var loopCounter = 0; loopCounter < rndArray.length; loopCounter++){
-		numCheck = isNaN(rndArray[loopCounter]);
-		if (numCheck === false && rndArray[loopCounter] !== false && rndArray[loopCounter] !== true){
+		numCheck = typeof(rndArray[loopCounter]);
+		if (numCheck === "number"){
 			sumOfArray = sumOfArray + rndArray[loopCounter];
+			
 		};
 	};
 		return sumOfArray;
