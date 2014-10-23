@@ -12,7 +12,9 @@ var myNum="412-735-2367",
 	email = "RKBacka@fullsail.edu",
 	stringNum = "72",
 	oddNum = 5,
-	evenArray=[2,4,6,8,10,12,14,16,18];
+	evenArray=[2,4,6,8,10,12,14,16,18],
+	assortedArray=[2,"hi",8,"hello",15, true],
+	totalOfArray = 0;
 
 //functions
 //function to figure out if a string is in valid phone number form
@@ -66,7 +68,17 @@ var nextHighestNum = function(numArray, newNum){
 	return newNum;
 };
 
-//
+//function finding the sum of all numbers in an array as long as they are numbers
+var sumOfAllNum = function(rndArray, sumOfArray){
+	var numCheck = 0;
+	for (var loopCounter = 0; loopCounter < rndArray.length; loopCounter++){
+		numCheck = isNaN(rndArray[loopCounter]);
+		if (numCheck === false && rndArray[loopCounter] !== false && rndArray[loopCounter] !== true){
+			sumOfArray = sumOfArray + rndArray[loopCounter];
+		};
+	};
+		return sumOfArray;
+};
 
 //main code
 //calling my phone number fuction and logging the results
@@ -88,6 +100,10 @@ console.log(stringNum+6);
 //calling function to find the first number in an array higher than a set number and logging the result
 oddNum = nextHighestNum(evenArray,oddNum);
 console.log(oddNum);
+
+//calling function to find the sum of a random array and logging the result
+totalOfArray = sumOfAllNum(assortedArray, totalOfArray);
+console.log(totalOfArray);
 
 
 
